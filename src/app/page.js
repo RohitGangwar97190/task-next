@@ -51,7 +51,7 @@ export default function DiscordTextGenerator() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 text-white p-6">
-      <h1 className="text-3xl font-bold mb-4">VideoDubber's Task </h1>
+      <h1 className="text-3xl font-bold mb-4">VideoDubber Task </h1>
 
       <textarea className="w-full max-w-lg p-3 bg-gray-800 border border-gray-700 rounded-lg text-white"
         rows="5" value={text} onChange={(e) => setText(e.target.value)} placeholder="Type your message here..."></textarea>
