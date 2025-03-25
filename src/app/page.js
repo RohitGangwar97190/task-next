@@ -7,7 +7,7 @@ const DOMPurify = isBrowser ? require("dompurify") : null;
 export default function DiscordTextGenerator() {
   const [text, setText] = useState("");
   const [selectedText, setSelectedText] = useState("");
-  const [fgColor, setFgColor] = useState("#000000");
+  const [fgColor, setFgColor] = useState("#ffffff");
   const [bgColor, setBgColor] = useState("#ffffff");
   const [isBold, setIsBold] = useState(false);
   const [isUnderline, setIsUnderline] = useState(false);
@@ -30,11 +30,11 @@ export default function DiscordTextGenerator() {
     );
   };
 
-  const toggleBold = () => setIsBold((prev) => { 
+  const Bold = () => setIsBold((prev) => { 
     applyStyles(!prev, isUnderline); 
     return !prev;
    });
-  const toggleUnderline = () => setIsUnderline((prev) => { 
+  const Underline = () => setIsUnderline((prev) => { 
     applyStyles(isBold, !prev);
      return !prev;
      });
@@ -88,8 +88,8 @@ export default function DiscordTextGenerator() {
       <div className="mt-4 flex space-x-3">
         <button onClick={() =>
            applyStyles()} className="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg">Apply</button>
-        <button onClick={toggleBold} className={`px-6 py-2 rounded-lg ${isBold ? "bg-yellow-600" : "bg-yellow-500 hover:bg-yellow-600"}`}>Bold</button>
-        <button onClick={toggleUnderline} className={`px-6 py-2 rounded-lg ${isUnderline ? "bg-purple-600" : "bg-purple-500 hover:bg-purple-600"}`}>Underline</button>
+        <button onClick={Bold} className={`px-6 py-2 rounded-lg ${isBold ? "bg-yellow-600" : "bg-yellow-500 hover:bg-yellow-600"}`}>Bold</button>
+        <button onClick={Underline} className={`px-6 py-2 rounded-lg ${isUnderline ? "bg-purple-600" : "bg-purple-500 hover:bg-purple-600"}`}>Underline</button>
         <button onClick={resetText} className="px-6 py-2 bg-red-500 hover:bg-red-600 rounded-lg">Reset</button>
       </div>
 
