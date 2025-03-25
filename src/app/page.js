@@ -30,12 +30,24 @@ export default function DiscordTextGenerator() {
     );
   };
 
-  const toggleBold = () => setIsBold((prev) => { applyStyles(!prev, isUnderline); return !prev; });
-  const toggleUnderline = () => setIsUnderline((prev) => { applyStyles(isBold, !prev); return !prev; });
+  const toggleBold = () => setIsBold((prev) => { 
+    applyStyles(!prev, isUnderline); 
+    return !prev;
+   });
+  const toggleUnderline = () => setIsUnderline((prev) => { 
+    applyStyles(isBold, !prev);
+     return !prev;
+     });
 
   const resetText = () => {
-    setText(""); setSelectedText(""); setFgColor("#000000"); setBgColor("#ffffff");
-    setIsBold(false); setIsUnderline(false); setStyledText(""); setCopySuccess(false);
+    setText("");
+     setSelectedText(""); 
+     setFgColor("#000000"); 
+     setBgColor("#ffffff");
+    setIsBold(false);
+     setIsUnderline(false);
+      setStyledText("");
+       setCopySuccess(false);
   };
 
   const copyToClipboard = async () => {
@@ -54,20 +66,28 @@ export default function DiscordTextGenerator() {
       <h1 className="text-3xl font-bold mb-4">VideoDubber Task </h1>
 
       <textarea className="w-full max-w-lg p-3 bg-gray-800 border border-gray-700 rounded-lg text-white"
-        rows="5" value={text} onChange={(e) => setText(e.target.value)} placeholder="Type your message here..."></textarea>
+        rows="5" value={text} onChange={(e) => 
+        setText(e.target.value)} placeholder="Type your message here...">
+
+        </textarea>
 
       <input type="text" className="p-2 rounded bg-gray-700 text-white border border-gray-600 mt-3 w-full max-w-lg"
-        value={selectedText} onChange={(e) => setSelectedText(e.target.value)} placeholder="Enter text to style" />
+        value={selectedText} onChange={(e) => 
+        setSelectedText(e.target.value)} 
+        placeholder="Enter text to style" />
 
       <div className="mt-3 flex space-x-4 items-center">
         <label className="text-sm">Foreground Color:</label>
-        <input type="color" className="w-10 h-10" value={fgColor} onChange={(e) => setFgColor(e.target.value)} />
+        <input type="color" className="w-10 h-10" value={fgColor} onChange={(e) =>
+           setFgColor(e.target.value)} />
         <label className="text-sm">Background Color:</label>
-        <input type="color" className="w-10 h-10" value={bgColor} onChange={(e) => setBgColor(e.target.value)} />
+        <input type="color" className="w-10 h-10" value={bgColor} onChange={(e) => 
+          setBgColor(e.target.value)} />
       </div>
 
       <div className="mt-4 flex space-x-3">
-        <button onClick={() => applyStyles()} className="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg">Apply</button>
+        <button onClick={() =>
+           applyStyles()} className="px-6 py-2 bg-blue-500 hover:bg-blue-600 rounded-lg">Apply</button>
         <button onClick={toggleBold} className={`px-6 py-2 rounded-lg ${isBold ? "bg-yellow-600" : "bg-yellow-500 hover:bg-yellow-600"}`}>Bold</button>
         <button onClick={toggleUnderline} className={`px-6 py-2 rounded-lg ${isUnderline ? "bg-purple-600" : "bg-purple-500 hover:bg-purple-600"}`}>Underline</button>
         <button onClick={resetText} className="px-6 py-2 bg-red-500 hover:bg-red-600 rounded-lg">Reset</button>
